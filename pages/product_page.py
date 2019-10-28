@@ -5,4 +5,4 @@ class ProductPage(BasePage):
 
     def add_product_to_basket(self):
         button = self.browser.find_element_by_css_selector(".btn-add-to-basket")
-        button.click() 
+        button.click()
