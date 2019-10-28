@@ -1,4 +1,5 @@
 from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import NoSuchElementException
 import math
 
 class BasePage():
@@ -24,3 +25,11 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def is_element_present(self, how: str, what: str) -> bool:
+        try:
+            self.browser.find_element(how, what)
+        except NoSuchElementException:
+            return False
+
+        return True
